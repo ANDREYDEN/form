@@ -31,8 +31,9 @@ jobs:
         
       - name: Version Bump
         run: |
-          echo ${steps.bump.outputs.version}
-          cd dist/libs/form && yarn version --new-version "${{ steps.bump.outputs.version }}" --no-git-tag-version
+          echo ${{steps.bump.outputs.version}}
+          cd dist/libs/form 
+          yarn version --new-version "${{ steps.bump.outputs.version }}" --no-git-tag-version
 
       - name: Publish
         run: yarn publish --access public
